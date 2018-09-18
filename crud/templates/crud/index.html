@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Empname</th>
+        <th>Empemail</th>
+        <th>Empaddress</th>
+        <th>Empphone</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in data %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.emp_name}}</td>
+        <td>{{row.emp_email}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.phone}}</td>
+        <td>
+            <span>
+                <a class="btn btn-info btn-sm" href="/crud/view/{{row.id}}">VIEW</a>
+                <a class="btn btn-primary btn-sm" href="/crud/update/{{row.id}}">UPDATE</a>
+                <a class="btn btn-warning btn-sm" href="/crud/delete/{{row.id}}">DELETE</a>
+            </span>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+<script>
+    $(document).ready(function(){
+    $('.delete').click(function(){
+           if(confirm('ARE you sure want to delete?'))
+           {
+           return true
+            }
+            else
+            { return false
+            }
+         });
+         });
+</script>
+
+{% endblock %}

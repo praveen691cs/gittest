@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Empname</th>
+        <th>Empemail</th>
+        <th>Empaddress</th>
+        <th>Empphone</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in data %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.emp_name}}</td>
+        <td>{{row.emp_email}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.phone}}</td>
+
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}
